@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Image Result</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Sansita&display=swap" rel="stylesheet">
+    <style>
+     body{
+        background: linear-gradient(to right,#1F2058 1%,#00083E);
+        font-family: 'Sansita', sans-serif;
+    }
+    .converter {
+      position: relative;
+      color: #52FBDD;
+      text-align: center;
+      margin: 30px auto;
+
+      bottom: 200px;
+    }
+
+    select,input{
+      display: block;
+      margin: 10px 0;
+      font-size: 20px;
+      outline: none;
+      margin-bottom: 15px;
+    }
+
+    label{
+      font-size: 60px;
+      margin-bottom: 100px;
+    }
+    button {
+      padding: 10px;
+      font-size: 16px;
+      cursor: pointer;
+    }
+
+    #result {
+      position: relative;
+      color: #52FBDD;
+      text-align: center;
+      bottom:150px;
+    }
+
+    .btn{
+       font-family: 'Sansita', sans-serif;
+       padding: 3px;
+       font-size: 35px;
+       border-radius:30px;
+       width: 200px;
+       height: 70px;
+       background:rgb(92, 76, 246);
+       border-color: transparent;
+       color:whitesmoke;
+       position: relative;
+       top: 20px;
+    }
+    input{
+      margin-left: 25%;
+      font-size: 35px;
+      text-align: center;
+      padding: 3px;
+      background: #66ffcc;
+      border-radius: 29px;
+      border-color: transparent;
+      outline: none;
+      width: 50%;
+      height: 60px;
+    }
+    #currency{
+      font-family: 'Sansita', sans-serif;
+      text-align: center;
+      margin-left: 25%;
+      padding: 3px;
+      font-size: 35px;
+      width: 50%;
+      height: 75px;
+      border-radius: 30px;
+      border-color: transparent;
+      margin-top: 60px;
+    }
+    .convertorHead{
+        position: relative;
+        font-size: 70px;
+        margin-bottom: 600px;
+        top: 450px;
+        max-width: 900px;
+        max-height: 900px;
+        left:50px;
+
+    }
+    .text-container{
+      text-align:center;
+      font-family: 'Sansita', sans-serif;
+      color: #52FBDD;
+      margin-bottom: 150px;
+      position:relative;
+      font-size: 50px;
+      margin: auto;
+      top: 170px;
+    }
+        .info{
+             font-family: 'Sansita', sans-serif;
+             text-transform: uppercase;
+             color: #52FBDD;
+             text-align: center;
+             font-size: 50px;
+            }
+        .credit{
+             font-family: 'Sansita', sans-serif;
+             text-transform: uppercase;
+             color: #52FBDD;
+             text-align: center;
+             font-size: 50px;
+             position: relative;
+             bottom: 60px;
+             margin-bottom: 0%;
+
+        }
+
+        .center {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 350px;
+        }
+
+        .image-container {
+            position: relative;
+            max-width: 60%;
+            max-height:60%;
+            top: 100px;
+
+        }
+        .image-container img {
+            display: block;
+            margin: 0 auto;
+            max-width: 100%;
+            max-height: 100%;
+            cursor: pointer;
+        }
+        .selectcu{
+          position: relative;
+          top: 30px;
+        }
+        .amount{
+          position: relative;
+          bottom: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="info">
+        <p><b>Indian Currency Identifier</b></p>
+    </div>
+    <div class="center">
+        <div class="image-container">
+            <img src="{{ image_path }}" alt="Uploaded Image" onclick="playAudio()">
+        </div>
+    </div>
+    <audio id="audioPlayer">
+        <source src="{{ audio_path }}" type="audio/mpeg">
+    </audio>
+    <div class="text-container">
+        <p>{{ text }}</p>
+       </div>
+    <div class="converter">
+        <p class="convertorHead">Currency Convertor</p>
+        <label for="amount" class="amount">Amount in INR:</label>
+        <input type="number" id="amount" placeholder="Enter amount" min="0" step="0.01">
+
+        <label for="currency" class="selectcu">Select currency:</label>
+        <select id="currency">
+          <option value="USD">United States Dollar</option>
+          <option value="EUR">Euro</option>
+          <option value="JPY">Japanese Yen</option>
+          <option value="GBP">British Pound Sterling</option>
+          <option value="AUD">Australian Dollar</option>
+          <option value="CAD">Canadian Dollar</option>
+          <option value="CHF">Swiss Franc</option>
+          <option value="CNY">Chinese Yuan</option>
+          <option value="SEK">Swedish Krona</option>
+          <option value="NZD">New Zealand Dollar</option>
+          <option value="MXN">Mexican Peso</option>
+          <option value="SGD">Singapore Dollar</option>
+          <option value="HKD">Hong Kong Dollar</option>
+          <option value="NOK">Norwegian Krone</option>
+          <option value="KRW">South Korean Won</option>
+          <option value="TRY">Turkish Lira</option>
+          <option value="RUB">Russian Ruble</option>
+          <option value="BRL">Brazilian Real</option>
+          <option value="ZAR">South African Rand</option>
+        </select>
+
+        <button onclick="convertCurrency()" class="btn">Convert</button>
+      </div>
+
+      <div id="result"></div>
+    <script>
+        function playAudio() {
+            var audio = document.getElementById('audioPlayer');
+            audio.play();
+        }
+
+        function convertCurrency() {
+      var amount = parseFloat(document.getElementById("amount").value);
+      var currency = document.getElementById("currency").value;
+
+      if (isNaN(amount)) {
+        alert("Please enter a valid amount.");
+        return;
+      }
+
+      var xhr = new XMLHttpRequest();
+      xhr.open("GET", "https://api.exchangerate-api.com/v4/latest/INR", true);
+      xhr.onload = function () {
+        if (xhr.status === 200) {
+          var response = JSON.parse(xhr.responseText);
+          var conversionRate = response.rates[currency];
+          var convertedAmount = amount * conversionRate;
+          document.getElementById("result").innerText =
+            amount + " INR is equal to " + convertedAmount.toFixed(2) + " " + currency;
+        } else {
+          alert("Failed to fetch exchange rate data. Please try again later.");
+        }
+      };
+      xhr.send();
+    }
+    </script>
+    <div class="credit">
+        <p>Thank you for using this application</p>
+    </div>
+</body>
+</html>

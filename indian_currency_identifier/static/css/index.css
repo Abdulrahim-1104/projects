@@ -1,0 +1,71 @@
+body{
+  background: linear-gradient(to right,#1F2058 1%,#00083E);
+}
+.image{
+  text-align: center;
+}
+img {
+  transform: rotate(-20deg);
+  max-width: 100%;
+  width: 700px;
+  height: auto;
+  margin-top: 50%;
+  margin-bottom: 60%;
+
+}
+.heading{
+  font-family: 'Architects Daughter', 'Times New Roman', Times, serif;
+  display: flex;
+  justify-content: center;
+  text-align: center;
+  color:#52FBDD;
+  font-size: 40px;
+  margin-top:50px;
+}
+.loader {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+  }
+  .dot {
+    height:20px;
+    width: 20px;
+    border-radius: 50%;
+    background-color:yellow;
+    margin: 10px;
+    animation: pulse 1.5s ease-in-out infinite;
+  }
+  
+  .dot:nth-child(2) {
+    animation-delay: 0.5s;
+  }
+  
+  .dot:nth-child(3) {
+    animation-delay: 1s;
+  }
+  
+  @keyframes pulse {
+    0% {
+      transform: scale(0.8);
+    }
+    50% {
+      transform: scale(1.2);
+    }
+    100% {
+      transform: scale(0.8);
+    }
+  }
+  
+  h1 {
+    font-family: 'Architects Daughter', cursive;
+    position: relative;
+    text-align: center;
+    font-size: 2.5em;
+    color: #52FBDD;
+    text-transform: uppercase;
+  }
+h2{
+  letter-spacing: 8px;
+  font-stretch: extra-condensed;
+}

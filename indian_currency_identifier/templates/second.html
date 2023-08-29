@@ -1,0 +1,53 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="../static/css/second.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Sansita&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="info">
+        <p><b>Indian Currency Identifier</b></p>
+    </div>
+    <div class="container">
+		<center>
+            <form enctype="multipart/form-data" method="POST" action='/process_image'>
+                <label for="fileInput">
+                    <img src="../static/Resources/camera.png" alt="camera">
+                  </label>
+                <input type="file" accept="image/*" id="fileInput" capture="camera" name="image" onchange="this.form.submit();">
+                <button type="button" id="captureButton" class="camera">
+                    <img src="../static/Resources/gallery.png" alt="gallery">
+                </button>
+            </form>
+        </center>
+	</div>
+	<script>
+		const fileInput = document.getElementById("fileInput");
+		const captureButton = document.getElementById("captureButton");
+
+		// Open camera when capture button is clicked
+		captureButton.addEventListener("click", () => {
+			fileInput.removeAttribute("capture");
+			fileInput.click();
+			fileInput.setAttribute("capture", "camera");
+		});
+	</script>
+    <div class="or">
+        <p>or</p>
+    </div>
+    <div class="add">
+        <p><b>Add your currency</b></p>
+    </div>
+    <div class="note">
+        <p>Note : This application is used to only identify the indian currency and mainly coins are not allowed to predict...!</p>
+    </div>
+
+</body>
+</html>
