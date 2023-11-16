@@ -1,0 +1,123 @@
+html,body{
+ margin: 0;
+ padding: 0;  
+ height: 100%;
+ width: 100%;
+}
+body{
+ font-family: 'Josefin Sans', sans-serif;
+ background:url(bg2.JPG);
+ backdrop-filter: blur(2px);
+}
+h1{
+ margin: 0;
+ text-align: center;
+ font-size: 40px;
+ padding-top: 18px;
+ font-weight: bold;
+ color: #20193a;
+}
+/* #e9e6ef */
+.container{
+ max-width:600px;
+ width: 80%;
+ height: 80%;
+ background-color: rgb(17, 8, 29,0.6);
+ margin: 28px auto;
+}
+.topcontainer div,.bottomcontainer div{
+ background-color: #20193a;
+ color: white;
+ text-align: center;
+}
+.topcontainer{
+ width: 100%;
+ height: 40%;
+ display: flex;
+ justify-content: center;
+ align-items: center;
+ gap: 10px;
+}
+.bottomcontainer{
+ width: 100%;
+ height: 60%;
+ display: grid;
+ grid-template-columns:repeat(2,50%);
+ grid-template-rows:repeat(2,40%);
+ align-items: center;
+ box-sizing: border-box;
+ padding: 10px;
+ row-gap: 30px;
+}
+.topcontainer div{
+ width: 30%;
+ max-height: 80%;
+ height: 25vw;
+}
+.bottomcontainer div{
+ width: 80%;
+ height: 100%;
+ margin:auto;
+}
+#img {
+ /* Styles for the .icon element */
+ width: 70%;
+ height: 70%;
+ margin-top: 2%;
+}
+.icon{
+ text-align: center;
+}
+.icon p{
+ margin-top: 6%;
+ font-size: 14px;
+}
+
+.celciusAndFarenheit{
+cursor: pointer;
+}
+.celciusAndFarenheit p{
+ font-size: max(40px,4vw,20px);
+ padding-left: 10px;
+ margin: 0;
+ text-align: center;
+ margin-top: 23%;
+}
+#cfsup{
+font-size: max(1rem,2vw,18px);
+margin-bottom: 6rem;
+}
+#temp{
+ font-size: 12px;
+}
+#placevalue{
+ font-size: 2vw;
+ margin: 0;
+ margin-top: 35%;
+ text-overflow: ellipsis; /* Show ellipsis (...) if text overflows */
+}
+#datevalue{
+ font-size: 12px;
+ margin-top: 8px;
+}
+#windvalue{
+ font-size: 3vw;
+ margin: 8px;
+}
+#winddir{
+ margin-top: 0;
+}
+#humidityval{
+ font-size: max(2.5em,4vw,30px);
+ margin-top: 20px;
+}
+#miles{
+ font-size: 20px;
+}
+#apVal{
+ font-size: max(2em,3vw,30px);
+ margin-top: 28px;
+}
+#mb{
+ font-size: 10px;
+}
