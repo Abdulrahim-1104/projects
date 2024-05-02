@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+ <meta charset="UTF-8">
+ <meta name="viewport" content="width=device-width, initial-scale=1.0">
+ <link rel="stylesheet" href="../static/css/register.css">
+ <title>Document</title>
+</head>
+<body>
+ <div class="container">
+  <h1>Registration Form</h1>
+  <form action="" method="post">
+<div class="inputs">
+ <label for="name">Student Name</label><br>
+ <input type="text" name="name" id="name" required><br>
+ <label for="dob">Date Of Birth</label><br>
+ <input type="date" name="dob" id="dob" required>
+
+ <label for="sports" >Sports
+ </label>
+ <select name="sport" id="sport" required>
+  <option value="" disabled selected>Sports</option>
+  <option value="volleyball">Volleyball</option>
+  <option value="Cricket">Cricket</option>
+  <option value="Footbal">Football</option>
+  <option value="Batmitton">Batmitton</option>
+  <option value="Throwball">Throwball</option>
+  <option value="Chess">Chess</option>
+  <option value="Carrom">Carrom</option>
+  <option value="Shotput">Shotput</option>
+  <option value="Jawlinthrow">Jawlin Throw</option>
+  <option value="Kabaddi">Kabaddi</option>
+ </select>
+</div>
+   <button type="submit">Submit</button>
+   <div id="back"><a href="/">Back</a></div>
+ </form>
+     {% with msg = get_flashed_messages() %}
+        <h3>{{ msg[0] }}</h3>
+     {% endwith %}
+ </div>
+</body>
+</html>

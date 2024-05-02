@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+ <meta charset="UTF-8">
+ <meta name="viewport" content="width=device-width, initial-scale=1.0">
+ <link rel="stylesheet" href="../static/css/result.css">
+ <title>Document</title>
+</head>
+<body>
+{% if records %}
+  <h1>Registrants</h1>
+  <div class="container">
+   <table border="1">
+    <thead>
+        <tr>
+            <th>Name</th>
+            <th>Dob</th>
+            <th>Sports</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for record in records %}
+            <tr>
+                <td>{{ record.name}}</td>
+                <td>{{ record.dob }}</td>
+                <td>{{ record.sport }}</td>
+            </tr>
+        {% endfor %}
+    </tbody>
+</table>
+      <a href="/"><button>Back</button></a>
+  </div>
+{% else %}
+    <h1> No Records Found </h1>
+    <a href="/"><button>Back</button></a>
+
+{% endif %}
+</body>
+</html>
